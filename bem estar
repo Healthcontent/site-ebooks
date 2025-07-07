@@ -1,0 +1,8 @@
+seu-repo-site/
+├── index.html
+├── artigos/
+│   └── artigo-001.md
+├── ebooks/
+│   └── ebook-001.pdf
+└── links/
+    └── comprar-artigo-001.html
