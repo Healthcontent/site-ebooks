@@ -6,3 +6,77 @@ seu-repo-site/
 │   └── ebook-001.pdf
 └── links/
     └── comprar-artigo-001.html
+import os
+import random
+from datetime import datetime
+from fpdf import FPDF
+
+# Tópicos base para geração
+topicos = [
+    "Importância do bem-estar animal na sociedade moderna.",
+    "Como práticas de autocuidado impactam a saúde mental.",
+    "Terapias alternativas para melhorar o bem-estar humano.",
+    "Conexão entre humanos e animais: impacto emocional.",
+    "Práticas sustentáveis que promovem o bem-estar coletivo."
+]
+
+def gerar_artigo():
+    titulo = random.choice(topicos)
+    slug = titulo.lower().replace(" ", "-").replace(".", "")
+    data = datetime.now().strftime('%Y-%m-%d')
+
+    texto_md = f"""# {titulo}
+
+*Publicado em {data}*
+
+Este artigo aborda tópicos relacionados ao bem-estar humano e animal, com base em estudos recentes e boas práticas.
+
+**Resumo:** {titulo}
+
+A saúde física, emocional e ambiental é essencial para a qualidade de vida. Neste artigo, exploramos como ações cotidianas influenciam diretamente nosso bem-estar e o dos animais ao nosso redor.
+"""
+
+    # Salvar artigo Markdown
+    path_artigo = f"artigos/{slug}.md"
+    with open(path_artigo, "w", encoding="utf-8") as f:
+        f.write(texto_md)
+
+    print(f"Artigo salvo: {path_artigo}")
+    return slug, titulo, texto_md
+
+def gerar_ebook(titulo, slug, conteudo_md):
+    pdf = FPDF()
+    pdf.add_page()
+    pdf.set_font("Arial", size=12)
+    pdf.multi_cell(0, 10, conteudo_md)
+    path_pdf = f"ebooks/{slug}.pdf"
+    pdf.output(path_pdf)
+    print(f"E-book salvo: {path_pdf}")
+    return path_pdf
+
+def gerar_pagina_compra(slug, titulo):
+    link = f"https://pagamento.exemplo.com/comprar-{slug}"
+    html = f"""<html>
+    <head><title>Comprar: {titulo}</title></head>
+    <body>
+        <h1>{titulo}</h1>
+        <p>Adquira o e-book completo clicando abaixo:</p>
+        <a href="{link}" target="_blank">Comprar Agora</a>
+    </body>
+</html>
+"""
+    path_html = f"links/comprar-{slug}.html"
+    with open(path_html, "w", encoding="utf-8") as f:
+        f.write(html)
+    print(f"Página de compra gerada: {path_html}")
+
+def publicar_git():
+    os.system("git add .")
+    os.system("git commit -m 'Conteúdo gerado automaticamente pelo robô'")
+    os.system("git push origin main")
+
+# Executar tudo
+slug, titulo, conteudo_md = gerar_artigo()
+gerar_ebook(titulo, slug, conteudo_md)
+gerar_pagina_compra(slug, titulo)
+publicar_git()
