@@ -1,5 +1,5 @@
 # Importância do bem-estar animal na sociedade moderna.
 
-*Publicado em 2025-09-08*
+*Publicado em 2025-09-13*
 
 Este artigo aborda tópicos relacionados ao bem-estar humano e animal.
