@@ -1,5 +1,5 @@
 # Práticas sustentáveis que promovem o bem-estar coletivo.
 
-*Publicado em 2025-10-23*
+*Publicado em 2025-11-15*
 
 Este artigo aborda tópicos relacionados ao bem-estar humano e animal.
