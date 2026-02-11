@@ -1,5 +1,5 @@
 # Terapias alternativas para melhorar o bem-estar humano.
 
-*Publicado em 2026-02-10*
+*Publicado em 2026-02-11*
 
 Este artigo aborda tópicos relacionados ao bem-estar humano e animal.
