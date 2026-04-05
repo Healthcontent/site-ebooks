@@ -1,5 +1,5 @@
 # Como práticas de autocuidado impactam a saúde mental.
 
-*Publicado em 2026-04-01*
+*Publicado em 2026-04-05*
 
 Este artigo aborda tópicos relacionados ao bem-estar humano e animal.
